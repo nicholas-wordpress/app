@@ -26,7 +26,7 @@ editor. A basic setup to render this would look like this:
 
 ```javascript
 import { render } from '@wordpress/element'
-import Admin from './nicholas-wp/admin/Admin'
+import { Admin } from 'nicholas-wp/admin'
 import fetch from 'nicholas-wp'
 
 // Render the app
@@ -40,7 +40,7 @@ However, you can pass children to `Admin`, as well, if you want to add more comp
 
 ```javascript
 import { render } from '@wordpress/element'
-import Admin from './nicholas-wp/admin/Admin'
+import { Admin } from 'nicholas-wp/admin'
 import fetch from 'nicholas-wp'
 
 function CustomComponent( props ) {
