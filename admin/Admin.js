@@ -4,7 +4,7 @@ import { __ } from '@wordpress/i18n'
 import { Url } from 'nicholas-router'
 import UrlField from './UrlField'
 import Urls from './Urls'
-import fetch from '../index'
+import fetch from 'nicholas-wp'
 
 export default ( { children } ) => {
 

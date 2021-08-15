@@ -1,5 +1,5 @@
 import { Url } from "nicholas-router"
-import fetch from '../fetch'
+import fetch from 'nicholas-wp'
 import { useState } from '@wordpress/element'
 import { TextControl, Button } from '@wordpress/components'
 import { __ } from '@wordpress/i18n'
