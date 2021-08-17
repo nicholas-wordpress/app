@@ -14,7 +14,6 @@ function getUrls() {
 
 			// Bail if the URL does not have an href
 			if ( url.href === undefined ) {
-				console.debug( 'url does not have an href, skipping' )
 				return acc
 			}
 
@@ -22,26 +21,21 @@ function getUrls() {
 
 			// If local, bail
 			if ( !url.isLocal() ) {
-				console.debug( 'url is not local, skipping' )
 				return acc
 			}
 
 			// If admin, bail
 			if ( url.pathname.includes( 'wp-admin' ) || url.pathname.includes( 'wp-login' ) ) {
-				console.debug( 'url is admin, skipping' )
 				return acc
 			}
 
 			// If cached, bail
 			if ( url.getCache() ) {
-				console.debug( 'url is already cached, skipping' )
 				return acc
 			}
 
 			// If the URL is already in the queue, bail
 			if ( acc.find( accUrl => accUrl.matchesUrl( url ) ) ) {
-				console.log( acc, url )
-				console.debug( 'url duplicate, skipping' )
 				return acc
 			}
 
@@ -49,8 +43,6 @@ function getUrls() {
 
 			return acc
 		}, [] )
-
-	console.log( queue )
 }
 
 /**
