@@ -19,6 +19,11 @@ function getUrls() {
 
 			url = new Url( url.href )
 
+			// Bail if url is an asset
+			if ( url.pathname.includes( '.' ) ) {
+				return acc
+			}
+
 			// If local, bail
 			if ( !url.isLocal() ) {
 				return acc
