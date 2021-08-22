@@ -70,7 +70,7 @@ registerPlugin( 'theme', { render: () => <CompatibilityModeToggle/> } );
 
 ## WordPress-specific Nicholas Router Middlewares
 
-[Nicholas Router]() supports adding middleware to routes. This package includes a couple handy middlewares to help with
+[Nicholas Router](https://github.com/nicholas-wordpress/router) supports adding middleware to routes. This package includes a couple handy middlewares to help with
 routing in a WordPress environment, including:
 
 1. Middleware to update the "edit post" in the admin bar
@@ -95,3 +95,28 @@ import {updateAdminBar, validateAdminPage, validateCompatibilityMode, primeCache
 		updateAdminBar
 	)
 ```
+
+## API Fetch Router Middleware
+
+This system also exports an instance of the [WordPress API Fetch]() library. This includes a way to set up middleware for this instance. This can be set up
+to automatically cache specicic REST endpoints using the cache middleware.
+
+```js
+import fetch from 'nicholas-wp'
+import { fetchCacheMiddleware } from 'nicholas-wp/middlewares'
+
+
+// Set up additional fetch cache middlewares.
+fetch.use( fetchCacheMiddleware )
+```
+
+From there, if you make any fetch calls and set `cacheItem` to `true` in your options, it will automatically cache that item using Nicholas. This data will
+be cleared in the same fashion as the core Nicholas router, and any concurrent requests will use the same request. This reduces the number of requests to 1 single request per route, and any call after that will instead load from the cache.
+
+```js
+// Fetch an item
+const result = await fetch({path: 'path/to/endpoint', cacheItem: true})
+const identicalResult = await fetch({path: 'path/to/endpoint', cacheItem: true})
+```
+
+The above example would make **one** REST request, and both items would return the same result as soon as that first request is resolved.

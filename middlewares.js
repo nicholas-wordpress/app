@@ -3,6 +3,7 @@ import validateAdminPage from './app/middlewares/route/validateAdminPage'
 import validateCompatibilityMode from './app/middlewares/route/validateCompatibilityMode'
 import primeCache from './app/middlewares/route/primeCache'
 import setPreloadWorker from './app/middlewares/setup/setPreloadWorker'
+import fetchCacheMiddleware from './app/middlewares/fetch/cacheMiddleware'
 
 // This should be compiled and exported as a global object.
 export {
@@ -10,5 +11,6 @@ export {
 	validateAdminPage,
 	validateCompatibilityMode,
 	primeCache,
-	setPreloadWorker
+	setPreloadWorker,
+	fetchCacheMiddleware
 }
