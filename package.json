@@ -9,6 +9,7 @@
   "author": "Alex Standiford",
   "license": "MIT",
   "dependencies": {
-    "@wordpress/element": "^4.0.0"
+    "@wordpress/element": "^4.0.0",
+    "crypto-js": "^4.1.1"
   }
 }
