@@ -1,6 +1,6 @@
 {
   "name": "nicholas-wp",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "WordPress support for Nicholas nearly headless theme framework",
   "main": "fetch.js",
   "scripts": {
